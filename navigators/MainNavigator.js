@@ -2,20 +2,20 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import DashboardScreen from '../screens/DashboardScreen'
 import LoginScreen from '../screens/LoginScreen'
-import Wel from '../screens/Wel'
+import HomeScreen from '../screens/HomeScreen'
 
 const MainStack = createStackNavigator()
 
 export default function MainNavigator () {
   return (
     <MainStack.Navigator
-      initialRouteName="Dashboard"
+      initialRouteName="Home"
       screenOptions={{
         // headerShown: false
         cardStyle: { paddingTop: 0 }
       }}
     >
-      <MainStack.Screen name="Dashboard" component={Wel} />
+      <MainStack.Screen name="Home" component={HomeScreen} />
      
 
     </MainStack.Navigator>
