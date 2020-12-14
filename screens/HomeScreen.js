@@ -8,13 +8,14 @@ export default function HomeScreen(props) {
     var today = new Date();
     var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     const { user } = useContext(AuthContext)
-    const { token} = useContext(AuthContext)
+    const { token } = useContext(AuthContext)
     console.log(token)
 
     const numeroCarte = () => {
-        fetch(('https://tree-rn-server.herokuapp.com/get-cards'),{
-        method : 'GET',
-        headers: { 'Authorization': token}} )
+        fetch(('https://tree-rn-server.herokuapp.com/get-cards'), {
+            method: 'GET',
+            headers: { 'Authorization': token }
+        })
             .then(response => response.json())
             .then(dati => console.log(dati))
 
@@ -23,7 +24,7 @@ export default function HomeScreen(props) {
         <View>
 
 
-            <Text> Bevenuto </Text>
+            <Text> Benvenuto </Text>
             <Text>{user.name}</Text>
             <Text>{date}</Text>
             <TouchableOpacity>
