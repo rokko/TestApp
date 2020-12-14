@@ -11,7 +11,7 @@ export default function AuthProvider ({ children }) {
   const [token, setTokenProv]=useState()
 
   const manageUserData = useCallback(async (userData) => {
-    console.log(userData)
+
     setUser(userData.user)
     setToken(userData.token)
     setTokenProv(userData.token)
