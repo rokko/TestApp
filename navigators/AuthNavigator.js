@@ -10,7 +10,7 @@ const AuthStack = createStackNavigator()
 export default function AuthNavigator () {
   return (
     <AuthStack.Navigator
-      initialRouteName="Signup"
+      initialRouteName="Login"
       screenOptions={{
         // headerShown: false
         cardStyle: { paddingTop: 0 }

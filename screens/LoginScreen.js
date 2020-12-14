@@ -1,5 +1,5 @@
 import React, { useContext, useState, createRef } from 'react'
-import { ScrollView, Text, View } from 'react-native'
+import { ScrollView, Text, View, TouchableOpacity } from 'react-native'
 import ScreenContainer from '../components/ScreenContainer'
 import Input from '../components/Input'
 import Spacer from '../components/Spacer'
@@ -26,6 +26,10 @@ export default function LoginScreen({ navigation, route }) {
   const [messageOpen, setMessageOpen] = useState(false)
   const { manageUserData } = useContext(AuthContext)
   const [loading, setLoading] = useState(false)
+  const onSignup = () => {
+    props.navigation.navigate('SignUp')
+
+  }
 
   const submitLogin = async () => {
     try {
@@ -74,7 +78,21 @@ export default function LoginScreen({ navigation, route }) {
 
         </ScrollView>
 
-    </View>
+        <View>
+          <Text>Hai dimenticato la password?</Text>
+        </View>
+        <View>
+          <Text>Non sei iscritto?</Text>
+          <TouchableOpacity
+            onPress={onSignup}>
+            <Text> Registrati subito</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+
+
+
     </>
   )
 

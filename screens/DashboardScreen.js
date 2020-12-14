@@ -10,9 +10,10 @@ import { AuthContext } from '../contexts/AuthContext'
 
 
 export default function DashboardScreen(props) {
-   const onLogin = () => {
-       props.navigation.navigate('Login')
-   }
+    const onLogin = () => {
+        props.navigation.navigate('Login')
+    }
+   
 
     return (
         <View style={[layoutStyles.container, { flex: 1, justifyContent: 'space-between' }]}>
@@ -26,6 +27,7 @@ export default function DashboardScreen(props) {
                 <Button onPress={onLogin}>Login</Button>
                 <Spacer size={20} />
             </View>
+           
         </View>
     )
 }
