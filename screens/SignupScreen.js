@@ -110,7 +110,9 @@ export default function SignupScreen(
         <Button
           disabled={loading || !formData.valid}
           onPress={submitSignup}
-        >Registrati</Button>
+        >
+
+        Registrati </Button>
 
         <Spacer size={10} />
       </ScrollView>

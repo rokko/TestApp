@@ -26,8 +26,9 @@ export default function LoginScreen({ navigation, route }) {
   const [messageOpen, setMessageOpen] = useState(false)
   const { manageUserData } = useContext(AuthContext)
   const [loading, setLoading] = useState(false)
+
   const onSignup = () => {
-    props.navigation.navigate('SignUp')
+   navigation.navigate('Signup')
 
   }
 
