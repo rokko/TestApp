@@ -1,10 +1,13 @@
-import AuthProvider from "./AuthContext.js" 
+import AuthProvider from "./AuthContext.js"
+import CardProvider from "./CardContext.js"
 import React from "react"
-export default function Providers({children}){
-    
+export default function Providers({ children }) {
+
     return (<>
-    <AuthProvider>
-        {children}
-    </AuthProvider>
+        <AuthProvider>
+            <CardProvider>
+                {children}
+            </CardProvider>
+        </AuthProvider>
     </>)
 }

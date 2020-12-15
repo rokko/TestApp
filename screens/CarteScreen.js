@@ -3,5 +3,6 @@ import {Text} from 'react-native'
 
 export default function Carte(){
 
-    return <Text>Ciao </Text>
+    return <Text>Le mie carte</Text>
+    
 }

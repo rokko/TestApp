@@ -1,6 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
 import { AuthContext } from '../contexts/AuthContext'
+import { CardContext } from '../contexts/CardContext'
 
 
 
@@ -9,35 +10,32 @@ export default function HomeScreen(props) {
     var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     const { user } = useContext(AuthContext)
     const { token } = useContext(AuthContext)
-    console.log(token)
+    const {cards} = useContext(CardContext)
+    const {getCards} = useContext(CardContext)
 
-    const numeroCarte = () => {
-        fetch(('https://tree-rn-server.herokuapp.com/get-cards'), {
-            method: 'GET',
-            headers: { 'Authorization': token }
-        })
-            .then(response => response.json())
-            .then(dati => console.log(dati))
 
-    }
+    
+
+
+
     return (
         <View>
-
-
             <Text> Benvenuto </Text>
             <Text>{user.name}</Text>
             <Text>{date}</Text>
-            <TouchableOpacity>
-                <Text>Carte</Text>
+
+            <TouchableOpacity
+           onPress={getCards(token)}>
+                
+
+                <Text >Carte : {cards.length + 1}</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={numeroCarte}>
-                <Text>Trasferimento</Text>
-            </TouchableOpacity>
 
-
-
+            <Text>Trasferimento : 293</Text>
 
         </View>
+
+
     )
 
 }

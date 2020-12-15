@@ -31,6 +31,8 @@ export default function AuthProvider ({ children }) {
     }))
   }, [])
 
+  console.log('eseguo autcontext', token)
+
   return (
     <AuthContext.Provider value={{ token, setTokenProv, user, manageUserData, onLogout }}>
       {children}
