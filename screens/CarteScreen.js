@@ -9,9 +9,15 @@ export default function CarteScreen(props) {
 
     const goCard = (carta)=>{
         console.log(carta)
-        props.navigation.navigate('Carta', carta )
+        props.navigation.navigate('Carta', {
+            id : carta.id,
+            otherParam : carta,
+            
+        })
 
-    }
+        } 
+
+    
 
     return (
         <>
