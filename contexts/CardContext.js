@@ -18,7 +18,7 @@ export default function CardProvider({ children }) {
         })
             .then(response => response.json())
             .then(dati => {
-                console.log(dati)
+               
                 setCards(dati.payload.cards)
 
             }) }, [])

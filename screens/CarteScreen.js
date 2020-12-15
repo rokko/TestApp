@@ -1,8 +1,28 @@
-import React from 'react'
-import {Text} from 'react-native'
+import React, { useContext } from 'react'
+import { Text, ScrollView } from 'react-native'
+import { CardContext } from '../contexts/CardContext'
+import CardComponent from '../components/CardComponent'
+export default function CarteScreen(props) {
 
-export default function CarteScreen(){
+    const { cards } = useContext(CardContext)
+    console.log(cards)
 
-    return <Text>Le mie carte</Text>
-    
+    const goCard = (carta)=>{
+        console.log(carta)
+        props.navigation.navigate('Carta', carta )
+
+    }
+
+    return (
+        <>
+            <Text>Le mie carte</Text>
+            <ScrollView>
+            {cards.map((carte, index) => {
+                return <CardComponent carte={carte} key={index} goCard={goCard}></CardComponent>
+            })}
+            </ScrollView>
+
+        </>
+
+    )
 }

@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import CarteScreen from '../screens/CarteScreen'
+import CartaScreen from '../screens/CartaScreen'
 
 const CardStack = createStackNavigator()
 
@@ -15,6 +16,7 @@ export default function CardNavigator(){
         }}
       >
       <CardStack.Screen name="Carte" component={CarteScreen} />
+      <CardStack.Screen name="Carta" component={CartaScreen} />
       </CardStack.Navigator>
 
     )

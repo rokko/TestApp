@@ -1,6 +1,8 @@
-import React from 'react'
+import React  from 'react'
+import {Text} from 'react-native'
 
-export default function CartaScreen(){
+export default function CartaScreen(props){
 
-    return
+    return <Text>{carta.name}</Text>
+
 }
