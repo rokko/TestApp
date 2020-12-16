@@ -55,7 +55,7 @@ export default function TrasferisciCardScreen(props) {
     }
 
     return (
-        <View>
+        <>
 
             <Alert open={messageOpen} message={alertMessage} onClose={() => { error ? setMessageOpen() : tornaAllaLista() }} typology={error ? 'danger' : 'success'} /> 
             <View>
@@ -65,7 +65,8 @@ export default function TrasferisciCardScreen(props) {
                 
                 <Button onPress={() => inviaCarta()}>Invia</Button>
             </View>
-        </View>
+            </>
+        
 
 
     )

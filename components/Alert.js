@@ -1,22 +1,4 @@
-/*
-import React from 'react';
-import Spacer from "./Spacer.js";
-import Button from "./Button.js";
-import { Text, View } from 'react-native'
-export default function Alert(props) {
-    let color = "yellow";
-    if (props.typology == "danger") {
-        color = "red";
-    } else if (props.typology == "success") { color = "green" }
-    if (status) {
-        return <View style={{flexDirection:"row", justifyContent:"space-between", width:"100%"}}>
-            <Text style={{ color: color }}>{props.message}</Text>
-            <Button title="X" onPress={props.onClose}/>
 
-        </View>
-    } else { return <Spacer syze={20} /> }
-}
-*/
 import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Animated, StyleSheet, View, Text } from 'react-native'
@@ -25,19 +7,12 @@ import Spacer from './Spacer'
 import colors from '../config/colors'
 import sizes from '../config/sizes'
 
-// COMPONENT CODE
-/////////////////////////////////////////////////////////////////////
 
-/**
- * Scrivere le props tramite il destructuring ci permette di impostare
- * dei valori di default e di non dovere scrivere `props.nomeProp`, ma solo `nomeProp`
- * in giro per il componente.
- * https://developer.mozilla.org/it/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
- */
+
 export default function Alert({
   open,
   onClose,
-  message = null, // questo campo è null di default, a meno che non si passi un altro valore tramite la prop `message`
+  message = null,
   typology
 }) {
   const animation = useRef(new Animated.Value(0)).current
@@ -52,30 +27,35 @@ export default function Alert({
 
   let typologyContainerStyle = typology === "danger" ? styles.containerDanger : styles.containerSuccess
 
+
   return (
     <Animated.View style={[styles.container, {
       transform: [{
         scale: animation.interpolate({
-          inputRange: [0, 1], // i valori di Animated.Value, gestiti all'interno di useEffect
-          outputRange: [0, 1] // il valore di scale basato sui valori di Animated.Value
+          inputRange: [0, 1],
+          outputRange: [0, 1] 
         })
-      }],
+      }]
     }]}>
-      <View style={[styles.containerInternal, typologyContainerStyle]}>
-        {
-          message && <Text style={styles.message}>{message}</Text>
+      <View style={[styles.containerInternal, typologyContainerStyle]}> 
+      {
+           <Text style={styles.message}>{message}</Text>
         }
-
-        {onClose && ( // stampo il bottone solo se la componente riceve la props onClose
-          <Button style={styles.button} color={colors.black} onPress={onClose}>Close</Button>
-        )}
+       
+        {
+          onClose &&
+          (
+            <Button style={styles.button} color={colors.black} onPress={onClose}>Ok</Button>
+          )
+        }
       </View>
+
     </Animated.View>
+
   )
 }
 
-// COMPONENT STYLE
-/////////////////////////////////////////////////////////////////////
+
 
 const styles = StyleSheet.create({
   container: {
@@ -116,16 +96,4 @@ const styles = StyleSheet.create({
   }
 })
 
-// COMPONENT PROPS
-/////////////////////////////////////////////////////////////////////
 
-// Alert.propTypes = {
-//   status: PropTypes.bool.isRequired,
-//   message: PropTypes.string.isRequired,
-//   typology: PropTypes.oneOf(['success', 'danger']),
-//   onClose: PropTypes.func
-// }
-
-// Alert.defaultProps = {
-//   typology: 'success'
-// }
