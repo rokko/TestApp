@@ -5,4 +5,5 @@ export const layoutStyles = StyleSheet.create({
   container: {
     paddingHorizontal: sizes.containerSpace
   }
+  
 })

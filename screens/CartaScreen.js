@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Image } from 'react-native'
 import Button from '../components/Button'
 
 export default function CartaScreen(props) {
@@ -12,7 +12,14 @@ export default function CartaScreen(props) {
             <Text>{card.id}</Text>
             <Text> {card.created_at}</Text>
             <Text>{card.description}</Text>
-            <Button onPress={()=> {}}>Trasferisci la carta</Button>
+            <Image style={{ height: 200, width: 200, borderRadius: 10 }}
+                source={require(`../assets/games/${card.game}.png`)} />
+            <Button onPress={() => {
+                props.navigation.navigate('Trasferisci', {
+                    id: card.id,
+                    otherParam:card,
+                })
+            }}>Trasferisci la carta</Button>
 
         </View>
     )

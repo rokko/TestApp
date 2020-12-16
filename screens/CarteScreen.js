@@ -12,13 +12,8 @@ export default function CarteScreen(props) {
         props.navigation.navigate('Carta', {
             id : carta.id,
             otherParam : carta,
-            
         })
-
-        } 
-
-    
-
+    } 
     return (
         <>
             <Text>Le mie carte</Text>
