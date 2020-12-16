@@ -24,9 +24,6 @@ const inputs = [
   { label: 'Surname', name: 'surname', ref: createRef() },
 ]
 
-//TROVARE LUNGHEZZA NUMERO PROPRIETA DI UN OGGETO
-/* const oggetto = {id: 1, nome: 'oggetto', length: 1000}
-console.log(Object.keys(oggetto).length) */
 
 export default function SignupScreen(
   { navigation, route }
@@ -41,22 +38,7 @@ export default function SignupScreen(
   const [loading, setLoading] = useState(false)
 
   const submitSignup = async () => {
-    // imposto la richiesta come in corso
-    /*setRequestRunning({
-      data: formData.values,
-      onSuccess: () => {
-        
-         * Per il momento facciamo solo un log, poi quando saranno implementati sia
-         * signup che login faremo un redirect alla homepage
-         *
-        console.log('sucessful signup')
-      },
-      onFail: (err) => {
-        console.log(err)
-        setError(err) // impostiamo il messaggio dell'Alert
-        setMessageOpen(true) // apriamo l'Alert
-      },
-    })*/
+  
 
     try {
       setLoading(true)

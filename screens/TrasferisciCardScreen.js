@@ -5,6 +5,7 @@ import Button from '../components/Button'
 import { AuthContext } from '../contexts/AuthContext'
 import Alert from '../components/Alert'
 
+
 export default function TrasferisciCardScreen(props) {
 
     const [inputCodice, setInputCodice] = useState('')
@@ -38,7 +39,7 @@ export default function TrasferisciCardScreen(props) {
         })
             .then(response => response.json())
             .then(rispo => {
-                console.log(rispo)
+                
                 if (rispo.result == true) {
                     setMessageOpen(true)
                     setError(false)
@@ -61,6 +62,7 @@ export default function TrasferisciCardScreen(props) {
                 <Text>Inserisci il codice </Text>
                 <Input label='Inserisci qui il codice' onTextChange={(testo) => setInputCodice(testo)} />
                 <Text>Hai un QR Code?</Text>
+                
                 <Button onPress={() => inviaCarta()}>Invia</Button>
             </View>
         </View>

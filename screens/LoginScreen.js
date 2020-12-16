@@ -37,7 +37,7 @@ export default function LoginScreen({ navigation, route }) {
       setLoading(true)
       const response = await api.post('authentication/login-action', formData.values)
       const { result, errors, payload } = response
-      console.log(payload)
+     
       if (result) {
         manageUserData(payload)
         rootNavigation.current.navigate('MainNavigator')

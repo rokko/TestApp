@@ -1,19 +1,25 @@
 import React from 'react'
 import { Text, View, Image } from 'react-native'
 import Button from '../components/Button'
+import HeaderComponent from '../components/Header'
+import minecraft from '../assets/games/minecraft.png'
 
 export default function CartaScreen(props) {
-    let card = props.route.params.otherParam
+    console.log(props)
+    let card = props.route.params.otherParam.carta
+    let imgSource = props.route.params.otherParam.img
 
 
     return (
+        <>
+       
         <View>
             <Text>{card.name}</Text>
             <Text>{card.id}</Text>
             <Text> {card.created_at}</Text>
             <Text>{card.description}</Text>
             <Image style={{ height: 200, width: 200, borderRadius: 10 }}
-                source={require(`../assets/games/${card.game}.png`)} />
+                source={imgSource} />
             <Button onPress={() => {
                 props.navigation.navigate('Trasferisci', {
                     id: card.id,
@@ -22,6 +28,7 @@ export default function CartaScreen(props) {
             }}>Trasferisci la carta</Button>
 
         </View>
+        </>
     )
 
 }

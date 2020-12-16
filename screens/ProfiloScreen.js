@@ -1,7 +1,8 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import { Text, Image } from 'react-native'
 import { AuthContext } from '../contexts/AuthContext'
 import Button from '../components/Button'
+import QRCode from 'react-native-qrcode-svg';
 
 
 export default function ProfiloScreen() {
@@ -17,17 +18,17 @@ export default function ProfiloScreen() {
         })
             .then(response => response.json())
             .then(dati => {
-                console.log(dati)  
-                if (dati.result == true){
-                setCod(dati.payload.portfolio_code)        
+
+                if (dati.result == true) {
+                    setCod(dati.payload.portfolio_code)
                 }
-                
+
             })
 
 
     }
 
-   
+
 
 
 
@@ -48,6 +49,17 @@ export default function ProfiloScreen() {
                     </>
                 )
             }
+            <Text>Il tuo qr code</Text>
+            <QRCode
+                //QR code value
+                value={cod}
+                //size of QR Code
+                size={250}
+                //Color of the QR Code (Optional)
+                color="black"
+                //Background Color of the QR Code (Optional)
+                backgroundColor="white"
+                />
 
         </>
     )
