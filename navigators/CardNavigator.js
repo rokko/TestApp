@@ -14,7 +14,9 @@ export default function CardNavigator() {
       initialRouteName="Carte" component={CarteScreen}
       screenOptions={{
         // headerShown: false
-        cardStyle: { paddingTop: 0 }
+        cardStyle: { paddingTop: 0 },
+        headerShown: false,
+       
       }}
     >
       <CardStack.Screen name="Carte" component={CarteScreen} />

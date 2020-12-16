@@ -28,7 +28,7 @@ export default function HomeScreen(props) {
             onPress={() =>props.navigation.navigate('Carte')}>
                 
 
-            <Text >Carte : {cards.length + 1}</Text>
+            <Text >Carte : {cards.length }</Text>
             </TouchableOpacity>
 
             <Text>Trasferimento : 293</Text>
