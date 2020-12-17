@@ -1134,7 +1134,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@react-native-community/async-storage@^1.12.1":
+"@react-native-community/async-storage@^1.12.1", "@react-native-community/async-storage@^1.6.1":
   version "1.12.1"
   resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.12.1.tgz#25f821b4f6b13abe005ad67e47c6f1cee9f27b24"
   integrity sha512-70WGaH3PKYASi4BThuEEKMkyAgE9k7VytBqmgPRx3MzJx9/MkspwqJGmn3QLCgHLIFUgF1pit2mWICbRJ3T3lg==
@@ -2566,6 +2566,13 @@ expo-asset@~8.2.0:
     md5-file "^3.2.3"
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
+
+expo-barcode-scanner@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/expo-barcode-scanner/-/expo-barcode-scanner-9.1.0.tgz#c699c2ef99478b0ea484a1ccc1f60562f60a3663"
+  integrity sha512-gf2MGw9Hs8cH0Xz+JdPSHg9mHxR46acENg3eh1dMsXbJyGCbmLIzvlQhBW7f2Cuqcx7Q30kGF91wzaK+VVUEoQ==
+  dependencies:
+    lodash "^4.6.0"
 
 expo-constants@~9.2.0:
   version "9.2.0"
@@ -4757,6 +4764,13 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-camera@^3.40.0:
+  version "3.40.0"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-3.40.0.tgz#69845991e46b0892cc2b50322d49b18f292c3202"
+  integrity sha512-Ur0hZqZcl3SntTVMB9GxuiLYpQxqwgzhQVb+7EGae4WjfDzQEwlGF0bJ7UpZyeUTb1oZmsiSib58xUckn11XMw==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-native-gesture-handler@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.9.0.tgz#e441b1c0277c3fd4ca3e5c58fdd681e2f0ceddf0"
@@ -4781,6 +4795,25 @@ react-native-paper@^4.5.0:
     "@callstack/react-theme-provider" "^3.0.5"
     color "^3.1.2"
     react-native-iphone-x-helper "^1.3.1"
+
+react-native-permissions@^2.0.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-2.2.2.tgz#3d2a63f6b7d6be52fc86e30f77412a9566283028"
+  integrity sha512-ihf4shQDSX5Oo9ChQXb9kr13mmyyNem5MaEvOpr3dCjhBOBWyEMztXm9/uPK1Qg5PsNpaYLa1KpcPZDCw87LXg==
+
+react-native-permissions@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-3.0.0.tgz#d9d107700741d41f8392f202f35a61f481fb0e68"
+  integrity sha512-zBvf+o3NhgKmBk1I06GzZXaDfc9SUyO4M5TMcaCF1pwG1h4sI+XAv3gWSbryl6WnaZQc1zA+g7SocSoYcpJN5g==
+
+react-native-qrcode-scanner@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-qrcode-scanner/-/react-native-qrcode-scanner-1.6.0.tgz#dbb16ef515b33c990656183e529eb1d9d354ef35"
+  integrity sha512-9Mxa0RzRqbOVeKDLyGKkHFva0KmO/dcbypWO/ll5e09thxBvXoLAtz9MzrLYJsoZHImsAEbroqsZu/e4x/SmFg==
+  dependencies:
+    "@react-native-community/async-storage" "^1.6.1"
+    prop-types "^15.5.10"
+    react-native-permissions "^2.0.2"
 
 react-native-qrcode-svg@^6.0.6:
   version "6.0.6"
