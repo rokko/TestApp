@@ -35,8 +35,10 @@ export default function Button ({ children, ...props }) {
     >
       <Text
         style={{
-          color: colors.white, // fare in modo che cambi in base alle props
-          textAlign: 'center'
+          color: colors.yellow, // fare in modo che cambi in base alle props
+          textAlign: 'center',
+          fontSize: 18,
+          fontWeight: 'bold',
         }}
       >{children}</Text>
     </Pressable>

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import { Text, Image, TouchableOpacity, View } from 'react-native'
+import { Text, Image, TouchableOpacity, View , Button} from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 import CarteScreen from '../screens/CarteScreen'
 import CartaScreen from '../screens/CartaScreen'
@@ -26,11 +26,24 @@ export default function CardNavigator() {
         options={{
           headerTitle: () => <Text>Lista Carte</Text>,
           headerRight: () =>  <View style={{ width:100, alignContent:'flex-start'}}><Image style={{ height: 30, width: 30 }} source={require('../assets/avatar/avatar.png')} /><Text>{user.name}</Text></View>,
-         
+          headerLeft : () => <Text></Text>
 
         }} />
-      <CardStack.Screen name="Carta" component={CartaScreen} />
-      <CardStack.Screen name="Trasferisci" component={TrasferisciCardScreen} />
+      <CardStack.Screen name="Carta" component={CartaScreen} 
+        options={{ 
+          headerTitle: ()=> <Text>Dettagli Carta</Text>,
+          headerRight: ()=> <View style={{ width:100, alignContent:'flex-start'}}><Image style={{ height: 30, width: 30 }} source={require('../assets/avatar/avatar.png')} /><Text>{user.name}</Text></View>,
+        }}
+      />
+      <CardStack.Screen name="Trasferisci" component={TrasferisciCardScreen} 
+      options={{
+        headerTitle:()=><Text>Trasferisci la carta</Text>,
+        headerRight: ()=> <View style={{ width:100, alignContent:'flex-start'}}><Image style={{ height: 30, width: 30 }} source={require('../assets/avatar/avatar.png')} /><Text>{user.name}</Text></View>,
+
+      }}
+
+
+      />
     </CardStack.Navigator>
 
 

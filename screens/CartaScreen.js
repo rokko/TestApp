@@ -5,7 +5,7 @@ import HeaderComponent from '../components/Header'
 import minecraft from '../assets/games/minecraft.png'
 
 export default function CartaScreen(props) {
-    console.log(props)
+    
     let card = props.route.params.otherParam.carta
     let imgSource = props.route.params.otherParam.img
 

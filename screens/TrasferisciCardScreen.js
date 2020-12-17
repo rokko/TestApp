@@ -41,10 +41,7 @@ export default function TrasferisciCardScreen(props) {
         'portfolio_code': inputCodice,
     }
 
-    const onSuccess = (e) => {
-        console.log(e.data)
-
-    }
+   
 
     const qrScansiona = () => {
         setLeggiQR(true)
@@ -85,8 +82,7 @@ export default function TrasferisciCardScreen(props) {
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
         setInputCodice(data)
-        console.log(type)
-        console.log(data)
+        
         alert(`Il codice è stato salvato , premi invia per inviare la carta`);
     };
 

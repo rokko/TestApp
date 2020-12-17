@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Text, Image , View} from 'react-native'
+import { Text, Image, View, ScrollView } from 'react-native'
 import { AuthContext } from '../contexts/AuthContext'
 import Button from '../components/Button'
 import QRCode from 'react-native-qrcode-svg';
@@ -7,7 +7,7 @@ import QRCode from 'react-native-qrcode-svg';
 
 export default function ProfiloScreen() {
     const { user } = useContext(AuthContext)
-    const { token } = useContext(AuthContext)
+    const { token, onLogout } = useContext(AuthContext)
     const [cod, setCod] = useState(user.portfolio_code)
 
 
@@ -49,22 +49,25 @@ export default function ProfiloScreen() {
                     </>
                 )
             }
-            <Text>Il tuo qr code</Text>
-            <View style={{padding:20,margin:30, alignContent:'center', borderWidth:2, borderColor:"#808080"}}>
-            
-            <QRCode
-            style={{marginLeft:80}}
-                //QR code value
-                value={cod}
-                //size of QR Code
-                size={250}
-                //Color of the QR Code (Optional)
-                color="black"
-                //Background Color of the QR Code (Optional)
-                backgroundColor="white"
-                
-                />
+            <ScrollView>
+                <Text>Il tuo qr code</Text>
+                <View style={{ padding: 20, margin: 30, alignContent: 'center', borderWidth: 2, borderColor: "#808080" }}>
+
+                    <QRCode
+                        style={{ marginLeft: 80 }}
+                        //QR code value
+                        value={cod}
+                        //size of QR Code
+                        size={250}
+                        //Color of the QR Code (Optional)
+                        color="black"
+                        //Background Color of the QR Code (Optional)
+                        backgroundColor="white"
+
+                    />
                 </View>
+                <Button onPress={()=>onLogout()}>Esci</Button>
+            </ScrollView>
 
         </>
     )

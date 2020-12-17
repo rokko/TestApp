@@ -13,6 +13,8 @@ import { AuthContext } from '../contexts/AuthContext'
 import { layoutStyles } from '../styles/Layout'
 import api from '../Utility/api'
 import { rootNavigation } from '../Utility/navigation.js'
+import colors from '../config/colors'
+
 
 const inputs = [
   { label: 'Username', name: 'username_email', ref: createRef() },
@@ -58,16 +60,18 @@ export default function LoginScreen({ navigation, route }) {
 
   return (
     <>
+     <Spacer size={6}/>
+      <View style={layoutStyles.container, {backgroundColor: colors.black, alignItems:'center', height:510, }}>
       <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} />
-      <View style={layoutStyles.container}>
+      <Spacer size={20} />
 
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false} // nasconde la scrollbar
           contentContainerStyle={layoutStyles.container}
-          style={{ flexGrow: 1 }}>
+          style={{ flexGrow: 1, backgroundColor:colors.white, width:320, padding:20,   }}>
 
-          <Spacer size={10} />
+          
           <Title label="Login" centerText />
           <Spacer size={10} />
 
@@ -81,13 +85,13 @@ export default function LoginScreen({ navigation, route }) {
         </ScrollView>
 
         <View>
-          <Text>Hai dimenticato la password?</Text>
+          <Text style={{color:colors.yellow}}>Hai dimenticato la password?</Text>
         </View>
-        <View>
-          <Text>Non sei iscritto?</Text>
+        <View style={{flexDirection:'row'}}>
+          <Text style={{color:colors.yellow}}>Non sei iscritto?</Text>
           <TouchableOpacity
             onPress={onSignup}>
-            <Text> Registrati subito</Text>
+            <Text style= {{color:colors.yellow}}> Registrati subito</Text>
           </TouchableOpacity>
         </View>
       </View>

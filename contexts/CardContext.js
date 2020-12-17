@@ -22,7 +22,7 @@ export default function CardProvider({ children }) {
                
                 setCards(dati.payload.cards)
 
-            }) }, [])
+            }) }, [cards])
 
     }
 

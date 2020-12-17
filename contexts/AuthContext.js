@@ -11,7 +11,7 @@ export const AuthContext = createContext()
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState()
-  const [token, setTokenProv] = useState()
+  const [token, setTokenProv] = useState(false)
   const [load, setLoad] = useState(true)
 
 
@@ -45,19 +45,24 @@ export default function AuthProvider({ children }) {
   const manageUserData = useCallback(async (userData) => {
     await AsyncStorage.setItem('AuthToken', userData.token)
     await AsyncStorage.setItem('User', JSON.stringify(userData.user))
-  
-    setUser(userData.user)
-    setToken(userData.token)
-    setTokenProv(userData.token)
+    
+    let tempToken = await AsyncStorage.getItem('AuthToken')
+    let tempUser = await AsyncStorage.getItem('User')
+    let tu = JSON.parse(tempUser)
+    if (tu != null) setUser(tu)
+    setTokenProv(tempToken)
+    setToken(tempToken)
+   
     
 
 
   }, [])
 
   const onLogout = useCallback(async () => {
-    setUser(null)
-    setToken('')
-    setTokenProv('')
+    await AsyncStorage.clear()
+    
+    setToken(false)
+   
 
 
     // cancello la storia di navigazione e vado sulla schermata di autenticazione
