@@ -13,7 +13,7 @@ export default function HomeScreen(props) {
     const { user , token } = useContext(AuthContext)
     const {cards} = useContext(CardContext)
     const {getCards} = useContext(CardContext)
-    
+    console.log(token)
     getCards(token)
 
     return (

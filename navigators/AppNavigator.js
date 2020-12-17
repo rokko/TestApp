@@ -10,14 +10,15 @@ const AppStack = createStackNavigator()
 
 export default function AppNavigator() {
 
-  const {load, oktoken} = useContext(AuthContext)
+  const {load, token} = useContext(AuthContext)
 
   
-   
+   if (load) return null
 
     return (
+        
         <AppStack.Navigator
-            initialRouteName={(!load)||(!oktoken) ? "MainNavigator" : "AuthNavigator"}
+            initialRouteName={(token) ? "MainNavigator" : "AuthNavigator"}
             screenOptions={{
                 headerShown: false,
                 cardStyle: { paddingTop: 0 },

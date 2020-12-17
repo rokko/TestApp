@@ -7,8 +7,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 
 export default function CarteScreen(props) {
 
-      const c = AsyncStorage.getItem('User')
-    console.log(c)
+      
   
     const { cards } = useContext(CardContext)
    

@@ -9,51 +9,56 @@ export const AuthContext = createContext()
 
 
 
-export default function AuthProvider ({ children }) {
+export default function AuthProvider({ children }) {
   const [user, setUser] = useState()
-  const [token, setTokenProv]=useState()
-  const [load, setLoad]=useState()
+  const [token, setTokenProv] = useState()
+  const [load, setLoad] = useState(true)
+
+
   useEffect(() => {
     const caricamento = async () => {
+
       try {
-        setLoad(false)
         let t = await AsyncStorage.getItem('AuthToken')
         let u = await AsyncStorage.getItem('User')
-        if( u==null) console.log(JSON.parse(u))
-      
-        console.log('qui abbiamo il token' )
-        
-        console.log(t)
-        setUser(u)
-        setToken(t)
-  
+        let j = JSON.parse(u)
+        if (j != null) setUser(j)
+        setTokenProv(t)
+
+
       } catch (err) {
         console.log(err);
+      } finally {
+        setLoad(false)
+
       }
-    
-      setLoad(true)
+
+
     }
-      caricamento()
-  
-    
-      
-      
+    caricamento()
+
+
+
+
   }, [])
 
   const manageUserData = useCallback(async (userData) => {
-
+    await AsyncStorage.setItem('AuthToken', userData.token)
+    await AsyncStorage.setItem('User', JSON.stringify(userData.user))
+  
     setUser(userData.user)
     setToken(userData.token)
     setTokenProv(userData.token)
-    await AsyncStorage.setItem('AuthToken', userData.token)
-    await AsyncStorage.setItem('User', (userData.user))
+    
+
+
   }, [])
 
   const onLogout = useCallback(async () => {
     setUser(null)
     setToken('')
     setTokenProv('')
-    
+
 
     // cancello la storia di navigazione e vado sulla schermata di autenticazione
     rootNavigation.current.dispatch(CommonActions.reset({
@@ -62,10 +67,10 @@ export default function AuthProvider ({ children }) {
     }))
   }, [])
 
-  
+
 
   return (
-    <AuthContext.Provider value={{ token, setTokenProv, user, manageUserData, onLogout ,load}}>
+    <AuthContext.Provider value={{ token, setTokenProv, user, manageUserData, onLogout, load }}>
       {children}
     </AuthContext.Provider>
   )
