@@ -23,7 +23,14 @@ export default function TrasferisciCardScreen(props) {
             const { status } = await BarCodeScanner.requestPermissionsAsync();
             setHasPermission(status === 'granted');
         })();
-    }, []);
+    }, [leggiQR]);
+
+    if (hasPermission === null) {
+        return <Text>Requesting for camera permission</Text>;
+    }
+    if (hasPermission === false) {
+        return <Text>No access to camera</Text>;
+    }
 
     let cartaDaTrasferire = props.route.params.otherParam
 
@@ -39,6 +46,11 @@ export default function TrasferisciCardScreen(props) {
 
     }
 
+    const qrScansiona = () => {
+        setLeggiQR(true)
+       
+
+    }
 
 
     const tornaAllaLista = () => {
@@ -78,13 +90,7 @@ export default function TrasferisciCardScreen(props) {
         alert(`Il codice è stato salvato , premi invia per inviare la carta`);
     };
 
-    if (hasPermission === null) {
-        return <Text>Requesting for camera permission</Text>;
-    }
-    if (hasPermission === false) {
-        return <Text>No access to camera</Text>;
-    }
-
+   
     return (
         <>
 
@@ -92,19 +98,22 @@ export default function TrasferisciCardScreen(props) {
             <View>
                 <Text>Inserisci il codice </Text>
                 <Input label='Inserisci qui il codice' onTextChange={(testo) => setInputCodice(testo)} />
-                <Button onPress={() => (setLeggiQR(true))}>Clicca qui se hai un QR CODE</Button>
+                <Button onPress={() => qrScansiona()}>Clicca qui se hai un QR CODE</Button>
 
-                <BarCodeScanner
-                style={{height:500,width:400, }}
-                    onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-                    barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
-                
-                />
+                {(leggiQR) &&
+                    <BarCodeScanner
+                        style={{ height: 500, width: 400, }}
+                        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+                        barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
+
+                    />}
+
 
 
 
                 <Button onPress={() => inviaCarta()}>Invia</Button>
             </View>
+
         </>
 
 

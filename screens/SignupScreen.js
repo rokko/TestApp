@@ -1,6 +1,7 @@
 import React, { useState, useRef, createRef, useContext } from 'react'
 import { AuthContext } from '../contexts/AuthContext'
-import { ScrollView, View } from 'react-native'
+import { ScrollView, View , Text} from 'react-native'
+import Checkbox from 'expo-checkbox';
 import ScreenContainer from '../components/ScreenContainer'
 import Input from '../components/Input'
 import Spacer from '../components/Spacer'
@@ -30,8 +31,7 @@ export default function SignupScreen(
 ) {
   const requiredInputs = ['username', 'email', 'password', 'password_confirmation', 'name', 'surname']
   const [formData, setFormValue] = useForm(requiredInputs)
-  //const [requestRunning, setRequestRunning] = useFetch(`${apis.baseUrl}/authentication/signup-action`, "POST")
-
+  const [isChecked, setChecked] = useState(false);
   const [error, setError] = useState(false)
   const [messageOpen, setMessageOpen] = useState(false)
   const { user, manageUserData } = useContext(AuthContext)
@@ -88,9 +88,11 @@ export default function SignupScreen(
         <Spacer size={10} />
 
         <Form inputs={inputs} updateInputValue={(name, text) => setFormValue(name, text)} />
+        <Checkbox   disabled={loading||!formData.valid} value={isChecked} onValueChange={setChecked} />
+        <Text>Ho letto e accetto l'informativa sulla privacy.</Text>
 
         <Button
-          disabled={loading || !formData.valid}
+          disabled={loading || !formData.valid || (!isChecked)}
           onPress={submitSignup}
         > Registrati </Button>
 

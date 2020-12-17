@@ -1,18 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import AuthNavigator from './AuthNavigator'
 import MainNavigator from './MainNavigator'
 import { AuthContext } from '../contexts/AuthContext'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const AppStack = createStackNavigator()
 
 export default function AppNavigator() {
-    const { token } = useContext(AuthContext)
-    
+
+  const {load, oktoken} = useContext(AuthContext)
+
+  
+   
 
     return (
         <AppStack.Navigator
-            initialRouteName={token ? "MainNavigator" : "AuthNavigator"}
+            initialRouteName={(!load)||(!oktoken) ? "MainNavigator" : "AuthNavigator"}
             screenOptions={{
                 headerShown: false,
                 cardStyle: { paddingTop: 0 },

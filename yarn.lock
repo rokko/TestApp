@@ -1134,6 +1134,13 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@react-native-async-storage/async-storage@^1.13.2":
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.13.2.tgz#649f78527f16cd5a87071a888219ef7a35ef5c79"
+  integrity sha512-isTDvUApRJPVWFxV15yrQSOGqarX7cIedq/y4N5yWSnotf68D9qvDEv1I7rCXhkBDi0u4OJt6GA9dksUT0D3wg==
+  dependencies:
+    deep-assign "^3.0.0"
+
 "@react-native-community/async-storage@^1.12.1", "@react-native-community/async-storage@^1.6.1":
   version "1.12.1"
   resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.12.1.tgz#25f821b4f6b13abe005ad67e47c6f1cee9f27b24"
@@ -2573,6 +2580,11 @@ expo-barcode-scanner@^9.1.0:
   integrity sha512-gf2MGw9Hs8cH0Xz+JdPSHg9mHxR46acENg3eh1dMsXbJyGCbmLIzvlQhBW7f2Cuqcx7Q30kGF91wzaK+VVUEoQ==
   dependencies:
     lodash "^4.6.0"
+
+expo-checkbox@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/expo-checkbox/-/expo-checkbox-1.0.1.tgz#df2abd3e474d3305438def5457013d0c315bb5a5"
+  integrity sha512-cIsWlERFxjcIKG6Es4kX/t/33cXM27OpLzygZ1bDsE7+O8NRcsNpyQzYOxrCpOVFQvId+MfnueIJvOFXIhUF+A==
 
 expo-constants@~9.2.0:
   version "9.2.0"

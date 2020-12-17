@@ -26,7 +26,7 @@ export default function CardNavigator() {
         options={{
           headerTitle: () => <Text>Lista Carte</Text>,
           headerRight: () =>  <View style={{ width:100, alignContent:'flex-start'}}><Image style={{ height: 30, width: 30 }} source={require('../assets/avatar/avatar.png')} /><Text>{user.name}</Text></View>,
-        
+         
 
         }} />
       <CardStack.Screen name="Carta" component={CartaScreen} />

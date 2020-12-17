@@ -15,7 +15,7 @@ export default function useLoader(){
 
                 
                  try{
-                     const {result,payload} = await api.get("refresh-token")
+                     const {result,payload} = await api.post("refresh-token")
                    if (result) {
                        manageUserData(payload);
                    }
