@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { Text, Image, View, ScrollView } from 'react-native'
 import { AuthContext } from '../contexts/AuthContext'
+import {CardContext} from '../contexts/CardContext'
 import Button from '../components/Button'
 import QRCode from 'react-native-qrcode-svg';
 
 
 export default function ProfiloScreen() {
-    const { user } = useContext(AuthContext)
-    const { token, onLogout } = useContext(AuthContext)
+    const { setCards } = useContext(CardContext)
+    const { token, onLogout, user } = useContext(AuthContext)
     const [cod, setCod] = useState(user.portfolio_code)
 
 
@@ -66,7 +67,10 @@ export default function ProfiloScreen() {
 
                     />
                 </View>
-                <Button onPress={()=>onLogout()}>Esci</Button>
+                <Button onPress={() => {
+                    setCards([])
+                    onLogout()
+                }}>Esci</Button>
             </ScrollView>
 
         </>

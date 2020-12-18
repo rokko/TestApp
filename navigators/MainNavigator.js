@@ -9,6 +9,7 @@ import ProfiloScreen from '../screens/ProfiloScreen'
 import CardProvider from '../contexts/CardContext'
 import AuthProvider from '../contexts/AuthContext'
 import CardNavigator from '../navigators/CardNavigator'
+import { HomeFillIcon } from '@ant-design/icons';
 import colors from '../config/colors'
 
 const MainStack = createBottomTabNavigator()
@@ -21,7 +22,7 @@ export default function MainNavigator() {
         initialRouteName="Home"
         screenOptions={{
           // headerShown: false
-          cardStyle: { paddingTop: 0 }
+          cardStyle: { paddingTop: 0 },
         }}
       >
         <MainStack.Screen name="Home" component={HomeScreen} />

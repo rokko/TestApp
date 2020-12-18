@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import AppNavigator from '../navigators/AppNavigator'
 import { rootNavigation } from '../Utility/navigation.js'
 import useLoader from "../hooks/useLoader.js"
+import HeaderComponent from '../components/Header'
 export default function Screens() {
     const loading = useLoader();
     return (
@@ -10,6 +11,7 @@ export default function Screens() {
             ? null
             :
             <NavigationContainer ref={rootNavigation}>
+                <HeaderComponent />
             
                 <AppNavigator />
                 

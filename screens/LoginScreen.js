@@ -1,5 +1,5 @@
 import React, { useContext, useState, createRef } from 'react'
-import { ScrollView, Text, View, TouchableOpacity, SafeAreaView} from 'react-native'
+import { ScrollView, Text, View, TouchableOpacity, SafeAreaView } from 'react-native'
 import ScreenContainer from '../components/ScreenContainer'
 import Input from '../components/Input'
 import Spacer from '../components/Spacer'
@@ -30,7 +30,7 @@ export default function LoginScreen({ navigation, route }) {
   const [loading, setLoading] = useState(false)
 
   const onSignup = () => {
-   navigation.navigate('Signup')
+    navigation.navigate('Signup')
 
   }
 
@@ -39,7 +39,7 @@ export default function LoginScreen({ navigation, route }) {
       setLoading(true)
       const response = await api.post('authentication/login-action', formData.values)
       const { result, errors, payload } = response
-     
+
       if (result) {
         manageUserData(payload)
         rootNavigation.current.navigate('MainNavigator')
@@ -59,23 +59,21 @@ export default function LoginScreen({ navigation, route }) {
   }
 
   return (
-    <>
-
-      <View style={layoutStyles.container, layoutStyles.sfondo}>
+    <View style={layoutStyles.container, layoutStyles.sfondo}>
       <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} />
-     
-      <Title label="Login" style={{color:colors.yellow}} centerText />
-      <Spacer size={7}/>
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
+      >
+        <Title label="Login" style={{ color: colors.yellow }} centerText />
+        <Spacer size={7} />
 
-        <ScrollView
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false} // nasconde la scrollbar
-          contentContainerStyle={layoutStyles.container}
-          style={layoutStyles.contenuto}>
+        <View
+          style={[layoutStyles.contenuto, layoutStyles.container]}>
 
-          
-          
-          <Spacer size={10} />
+
+
+          <Spacer size={5} />
 
           <Form inputs={inputs} updateInputValue={setFormValue} />
 
@@ -84,23 +82,26 @@ export default function LoginScreen({ navigation, route }) {
             onPress={submitLogin}
           >Accedi</Button>
 
-        </ScrollView>
-
-        <View>
-          <Text style={{color:colors.yellow}}>Hai dimenticato la password?</Text>
         </View>
-        <View style={{flexDirection:'row'}}>
-          <Text style={{color:colors.yellow}}>Non sei iscritto?</Text>
-          <TouchableOpacity
-            onPress={onSignup}>
-            <Text style= {{color:colors.yellow}}> Registrati subito</Text>
-          </TouchableOpacity>
+
+        <View style={{ justifyContent:'center', alignItems:'center'}}>
+          <Text style={{ color: colors.yellow }}>Hai dimenticato la password?</Text>
+
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ color: colors.yellow }}>Non sei iscritto?</Text>
+            <TouchableOpacity
+              onPress={onSignup}>
+              <Text style={{ color: colors.yellow }}> Registrati subito</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+
+      </ScrollView>
+    </View>
 
 
 
-    </>
+
   )
 
 }

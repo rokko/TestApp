@@ -8,35 +8,57 @@ export const layoutStyles = StyleSheet.create({
 
   },
   contenuto: {
+    
     flexGrow: 1,
-    backgroundColor:
-      colors.whiteInput,
-    width: 320,
+    backgroundColor:colors.whiteInput,
+    width: '100%',
     padding: 20,
-    borderRadius: 15,
+    borderTopRightRadius:10,
+    borderTopLeftRadius:10,
+  },
+  profile :{
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   sfondo: {
-    
-    flex:1,
+
+    flex: 1,
     backgroundColor: colors.black,
-    alignItems: 'center',    
-    color : colors.yellow,
+    alignItems: 'center',
+
   },
-  
-  headerStile : {
-    
-      backgroundColor:colors.black,
-  
+
+  testoNome :{
+    fontSize: 25,
+    fontWeight: 'bold'
+
   },
-  titleStile :{
+
+  data :{
+    fontStyle: 'italic',
+    fontSize : 15,
+  },
+
+
+
+  headerStile: {
+    flexDirection: 'row',
+    height : 70,    
+    paddingTop: sizes.statusBarHeight,
+    backgroundColor: colors.black,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+
+  },
+  titleStile: {
     fontWeight: 'bold',
     color: colors.yellow,
 
   },
-  imageHeader:{
-    width:50, 
-    height:50,
+  imageHeader: {
+    width: 50,
+    height: 50,
   }
 }
-  )
+)

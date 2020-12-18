@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { Text, Image, TouchableOpacity, View , Button} from 'react-native'
+import colors from '../config/colors'
 import { createStackNavigator } from '@react-navigation/stack'
 import CarteScreen from '../screens/CarteScreen'
 import CartaScreen from '../screens/CartaScreen'
@@ -23,24 +24,38 @@ export default function CardNavigator() {
       }}
     >
       <CardStack.Screen name="Carte" component={CarteScreen}
-        options={{
-          headerTitle: () => <Text>Lista Carte</Text>,
-          headerRight: () =>  <View style={{ width:100, alignContent:'flex-start'}}><Image style={{ height: 30, width: 30 }} source={require('../assets/avatar/avatar.png')} /><Text>{user.name}</Text></View>,
-          headerLeft : () => <Text></Text>
+      options = {{
+        headerShown: false,
 
-        }} />
+      }}/>
+        
       <CardStack.Screen name="Carta" component={CartaScreen} 
         options={{ 
-          headerTitle: ()=> <Text>Dettagli Carta</Text>,
-          headerRight: ()=> <View style={{ width:100, alignContent:'flex-start'}}><Image style={{ height: 30, width: 30 }} source={require('../assets/avatar/avatar.png')} /><Text>{user.name}</Text></View>,
+          title :'',
+          headerStyle:{
+            backgroundColor: colors.black,
+          },          
+          headerTintColor: colors.yellow,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            color: colors.yellow,
+          },
         }}
       />
       <CardStack.Screen name="Trasferisci" component={TrasferisciCardScreen} 
-      options={{
-        headerTitle:()=><Text>Trasferisci la carta</Text>,
-        headerRight: ()=> <View style={{ width:100, alignContent:'flex-start'}}><Image style={{ height: 30, width: 30 }} source={require('../assets/avatar/avatar.png')} /><Text>{user.name}</Text></View>,
-
-      }}
+      
+        options={{ 
+          title :'',
+          headerStyle:{
+            backgroundColor: colors.black,
+          },          
+          headerTintColor: colors.yellow,
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            color: colors.yellow,
+          },
+        }}
+      
 
 
       />

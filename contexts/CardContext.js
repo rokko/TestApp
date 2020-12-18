@@ -24,8 +24,11 @@ export default function CardProvider({ children }) {
 
 
 
+
+
+
                 return (
-                    <CardContext.Provider value={{ cards, getCards }}>
+                    <CardContext.Provider value={{ cards, getCards , setCards}}>
                         { children}
                     </CardContext.Provider>
                 )

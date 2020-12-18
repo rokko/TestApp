@@ -58,7 +58,8 @@ export default function AuthProvider({ children }) {
   const onLogout = useCallback(async () => {
 
     await AsyncStorage.clear()
-    setToken(false)
+    setTokenProv(false)
+    
 
     // cancello la storia di navigazione e vado sulla schermata di autenticazione
     rootNavigation.current.dispatch(CommonActions.reset({
