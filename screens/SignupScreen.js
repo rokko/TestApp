@@ -64,15 +64,17 @@ export default function SignupScreen(
 
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={layoutStyles.sfondo}>
+      
+       
+      <Spacer size={3} />
       <Alert
         message={error}
         open={messageOpen}
         onClose={() => setMessageOpen(false)}
         typology={error ? 'danger' : 'success'}
       />
-
-      <ScrollView
+      <ScrollView 
         /**
          * `keyboardShouldPersistTaps="handled"`
          * fa in modo che quando un input è in focus, se si clicca
@@ -81,20 +83,23 @@ export default function SignupScreen(
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false} // nasconde la scrollbar
         contentContainerStyle={layoutStyles.container}
-        style={{ flexGrow: 1 }}
+        style={{ flexGrow: 1 }, layoutStyles.contenuto}
       >
-        <Spacer size={10} />
-        <Title label="Registrazione" centerText />
-        <Spacer size={10} />
+      
+       
 
         <Form inputs={inputs} updateInputValue={(name, text) => setFormValue(name, text)} />
+        <View style={{flexDirection: 'row'}}>
         <Checkbox   disabled={loading||!formData.valid} value={isChecked} onValueChange={setChecked} />
         <Text>Ho letto e accetto l'informativa sulla privacy.</Text>
+        </View>
+        <Spacer size={5} />
 
         <Button
           disabled={loading || !formData.valid || (!isChecked)}
           onPress={submitSignup}
         > Registrati </Button>
+
 
         <Spacer size={10} />
       </ScrollView>

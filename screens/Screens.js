@@ -10,7 +10,9 @@ export default function Screens() {
             ? null
             :
             <NavigationContainer ref={rootNavigation}>
+            
                 <AppNavigator />
+                
             </NavigationContainer>
             
             

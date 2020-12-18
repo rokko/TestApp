@@ -10,7 +10,7 @@ export const AuthContext = createContext()
 
 
 export default function AuthProvider({ children }) {
-  const [user, setUser] = useState()
+  const [user, setUser] = useState({})
   const [token, setTokenProv] = useState(false)
   const [load, setLoad] = useState(true)
 
@@ -25,15 +25,12 @@ export default function AuthProvider({ children }) {
         if (j != null) setUser(j)
         setTokenProv(t)
 
-
       } catch (err) {
         console.log(err);
       } finally {
         setLoad(false)
 
       }
-
-
     }
     caricamento()
 
@@ -45,25 +42,23 @@ export default function AuthProvider({ children }) {
   const manageUserData = useCallback(async (userData) => {
     await AsyncStorage.setItem('AuthToken', userData.token)
     await AsyncStorage.setItem('User', JSON.stringify(userData.user))
-    
+
     let tempToken = await AsyncStorage.getItem('AuthToken')
     let tempUser = await AsyncStorage.getItem('User')
     let tu = JSON.parse(tempUser)
     if (tu != null) setUser(tu)
     setTokenProv(tempToken)
     setToken(tempToken)
-   
-    
+
+
 
 
   }, [])
 
   const onLogout = useCallback(async () => {
-    await AsyncStorage.clear()
-    
-    setToken(false)
-   
 
+    await AsyncStorage.clear()
+    setToken(false)
 
     // cancello la storia di navigazione e vado sulla schermata di autenticazione
     rootNavigation.current.dispatch(CommonActions.reset({

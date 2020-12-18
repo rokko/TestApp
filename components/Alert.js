@@ -45,7 +45,7 @@ export default function Alert({
         {
           onClose &&
           (
-            <Button style={styles.button} color={colors.black} onPress={onClose}>Ok</Button>
+            <Button style={styles.button} color={colors.black} onPress={onClose}>X</Button>
           )
         }
       </View>

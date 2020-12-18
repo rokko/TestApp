@@ -46,11 +46,14 @@ import AppNavigator from './navigators/AppNavigator'
 import { rootNavigation } from './Utility/navigation.js'
 import Providers from "./contexts/Providers.js"
 import Screens from "./screens/Screens.js"
+import {StatusBar} from 'expo-status-bar'
 //export const rootNavigation = createRef()
 
 export default function App() {
   return (
     <Providers>
+    <StatusBar style='light' backgroundColor='transparent'/>
+
       <Screens/>
     </Providers>
   )

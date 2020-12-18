@@ -9,6 +9,7 @@ import ProfiloScreen from '../screens/ProfiloScreen'
 import CardProvider from '../contexts/CardContext'
 import AuthProvider from '../contexts/AuthContext'
 import CardNavigator from '../navigators/CardNavigator'
+import colors from '../config/colors'
 
 const MainStack = createBottomTabNavigator()
 

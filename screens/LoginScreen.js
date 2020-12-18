@@ -1,5 +1,5 @@
 import React, { useContext, useState, createRef } from 'react'
-import { ScrollView, Text, View, TouchableOpacity } from 'react-native'
+import { ScrollView, Text, View, TouchableOpacity, SafeAreaView} from 'react-native'
 import ScreenContainer from '../components/ScreenContainer'
 import Input from '../components/Input'
 import Spacer from '../components/Spacer'
@@ -60,19 +60,21 @@ export default function LoginScreen({ navigation, route }) {
 
   return (
     <>
-     <Spacer size={6}/>
-      <View style={layoutStyles.container, {backgroundColor: colors.black, alignItems:'center', height:510, }}>
+
+      <View style={layoutStyles.container, layoutStyles.sfondo}>
       <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} />
-      <Spacer size={20} />
+     
+      <Title label="Login" style={{color:colors.yellow}} centerText />
+      <Spacer size={7}/>
 
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false} // nasconde la scrollbar
           contentContainerStyle={layoutStyles.container}
-          style={{ flexGrow: 1, backgroundColor:colors.white, width:320, padding:20,   }}>
+          style={layoutStyles.contenuto}>
 
           
-          <Title label="Login" centerText />
+          
           <Spacer size={10} />
 
           <Form inputs={inputs} updateInputValue={setFormValue} />
@@ -95,7 +97,6 @@ export default function LoginScreen({ navigation, route }) {
           </TouchableOpacity>
         </View>
       </View>
-
 
 
 

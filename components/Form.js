@@ -11,7 +11,7 @@ export default function Form({ inputs, updateInputValue }) {
         inputs.map(({ label, name, ref, autoCapitalize, secureTextEntry }, index) => {
           return (
             <View key={index}>
-              <Input
+              <Input 
                 ref={ref}
                 label={label}
                 blurOnSubmit={!(index < inputs.length - 1)}

@@ -13,30 +13,27 @@ export default function CardProvider({ children }) {
 
     function getCards(token) {
 
-        useEffect(() => {fetch(('https://tree-rn-server.herokuapp.com/get-cards'), {
+        fetch(('https://tree-rn-server.herokuapp.com/get-cards'), {
             method: 'GET',
             headers: { 'Authorization': token }
         })
             .then(response => response.json())
-            .then(dati => {
-               
-                setCards(dati.payload.cards)
-
-            }) }, [cards])
-
+            .then(dati => setCards(dati.payload.cards))
+            .catch(e => console.log(e))
     }
 
 
-    return (
-        <CardContext.Provider value={{ cards, getCards }}>
-            { children}
-        </CardContext.Provider>
-    )
+
+                return (
+                    <CardContext.Provider value={{ cards, getCards }}>
+                        { children}
+                    </CardContext.Provider>
+                )
 
 
 
 
 
-}
+            }
 
 

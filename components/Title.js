@@ -23,7 +23,7 @@ export default function Title (props) {
 const styles = StyleSheet.create({
   container: {},
   text: {
-    color: colors.primary,
+    color: colors.yellow,
     fontWeight: 'bold',
     fontSize: 30,
     textTransform: 'uppercase'

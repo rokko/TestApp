@@ -78,7 +78,7 @@ const Input = forwardRef(({
           {
             backgroundColor: animation.interpolate({
               inputRange: [0, 1, 2], // i valori di Animated.Value, gestiti all'interno di useEffect
-              outputRange: [colors.grayLight, colors.gray, colors.yellow] // il valore di translate basato sui valori di Animated.Value
+              outputRange: [colors.grayLight, colors.silver, colors.yellow] // il valore di translate basato sui valori di Animated.Value
             })
           }
         ]}
@@ -112,7 +112,7 @@ const Input = forwardRef(({
         style={{
           width: '100%',
           height: 2,
-          backgroundColor: colors.primary,
+          backgroundColor: colors.yellow,
           position: 'absolute',
           bottom: 0,
           transform: [{

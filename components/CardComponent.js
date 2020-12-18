@@ -4,25 +4,11 @@ import { Image } from 'react-native'
 import {images} from '../config/immagini'
 
 export default function CardComponent(props) {
-  let imgSource =''
+  
+  
+  const imgSource = (images[props.carte.game]) ? images[props.carte.game].uri : images.naruto.uri
    //////Grazie a GabyCN per lo switch
-    switch(props.carte.game) {
-        case 'minecraft':
-             imgSource = images.minecraft.uri
-          break;
-        case 'dragonball':
-             imgSource = images.dragonball.uri
-          break;
-          case 'naruto':
-             imgSource = images.narutot.uri
-          break;
-        case 'pokemon':
-             imgSource = images.pokemon.uri
-          break;
-        default:
-             imgSource = images.supermario.uri
-      }
-
+   
     
 
 
