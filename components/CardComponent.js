@@ -13,7 +13,7 @@ export default function CardComponent(props) {
 
 
     return (
-        <View style={{justifyContent:'center'}}>
+        <View style={{justifyContent:'center', margin : 5, borderRadius:7}}>
         <Card >
             <View style={{ flexDirection: 'row', padding:10, borderRadius: 10, margin : 10, borderRadius:5  }}>
                 <Card.Content >

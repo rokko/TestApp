@@ -5,6 +5,9 @@ import Button from '../components/Button'
 import { AuthContext } from '../contexts/AuthContext'
 import Alert from '../components/Alert'
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import {layoutStyles} from '../styles/Layout'
+import Spacer from '../components/Spacer'
+
 
 
 export default function TrasferisciCardScreen(props) {
@@ -41,11 +44,11 @@ export default function TrasferisciCardScreen(props) {
         'portfolio_code': inputCodice,
     }
 
-   
+
 
     const qrScansiona = () => {
         setLeggiQR(true)
-       
+
 
     }
 
@@ -82,32 +85,35 @@ export default function TrasferisciCardScreen(props) {
     const handleBarCodeScanned = ({ type, data }) => {
         setScanned(true);
         setInputCodice(data)
-        
+
         alert(`Il codice è stato salvato , premi invia per inviare la carta`);
     };
 
-   
+
     return (
+
         <>
-
             <Alert open={messageOpen} message={alertMessage} onClose={() => { error ? setMessageOpen() : tornaAllaLista() }} typology={error ? 'danger' : 'success'} />
-            <View>
-                <Text>Inserisci il codice </Text>
-                <Input label='Inserisci qui il codice' onTextChange={(testo) => setInputCodice(testo)} />
-                <Button onPress={() => qrScansiona()}>Clicca qui se hai un QR CODE</Button>
+            <View style={layoutStyles.sfondo}>
+                <View style={[layoutStyles.contenuto, { justifyContent: 'center'}]}>
+                    <Text>Inserisci il codice </Text>
+                    <Input label='Inserisci qui il codice' onTextChange={(testo) => setInputCodice(testo)} />
+                    <Button onPress={() => qrScansiona()}>Clicca qui se hai un QR CODE</Button>
 
-                {(leggiQR) &&
-                    <BarCodeScanner
-                        style={{ height: 500, width: 400, }}
-                        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-                        barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
+                    {(leggiQR) &&
+                        <BarCodeScanner
+                            style={{ height: 500, width: 400, }}
+                            onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+                            barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
 
-                    />}
-
-
+                        />}
 
 
-                <Button onPress={() => inviaCarta()}>Invia</Button>
+
+                    <Spacer size={10}/>
+
+                    <Button onPress={() => inviaCarta()}>Invia</Button>
+                </View>
             </View>
 
         </>
