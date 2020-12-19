@@ -1,18 +1,16 @@
-import React, { useEffect, useContext } from 'react'
-import { Text, Image, TouchableOpacity, View , Button} from 'react-native'
+import React, {  useContext } from 'react'
 import colors from '../config/colors'
 import { createStackNavigator } from '@react-navigation/stack'
 import CarteScreen from '../screens/CarteScreen'
 import CartaScreen from '../screens/CartaScreen'
 import TrasferisciCardScreen from '../screens/TrasferisciCardScreen'
-import { HeaderBackButton } from '@react-navigation/stack'
 import { AuthContext } from '../contexts/AuthContext'
 
 const CardStack = createStackNavigator()
 
 export default function CardNavigator() {
 
-  const { user } = useContext(AuthContext)
+  
   return (
 
     <CardStack.Navigator

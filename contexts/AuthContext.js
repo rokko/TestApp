@@ -59,7 +59,7 @@ export default function AuthProvider({ children }) {
 
     await AsyncStorage.clear()
     setTokenProv(false)
-    
+
 
     // cancello la storia di navigazione e vado sulla schermata di autenticazione
     rootNavigation.current.dispatch(CommonActions.reset({

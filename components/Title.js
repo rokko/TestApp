@@ -6,7 +6,7 @@ import colors from '../config/colors'
 // COMPONENT CODE
 /////////////////////////////////////////////////////////////////////
 
-export default function Title (props) {
+export default function Title(props) {
 
   const alignStyle = props.centerText ? styles.textCenter : {}
 

@@ -1,12 +1,7 @@
 import React, { useRef, useEffect, useState, forwardRef } from 'react'
 import { Animated, StyleSheet, Text, TextInput, View } from 'react-native'
 import colors from '../config/colors'
-/**
- * ref non può essere passata come prop
- * quindi dobbiamo utilizzare `forwardRef`, che la espone
- * come secondo parametro del nostro componente
- * https://it.reactjs.org/docs/forwarding-refs.html
-*/
+
 const Input = forwardRef(({
   containerStyle,
   labelStyle,
@@ -14,19 +9,14 @@ const Input = forwardRef(({
   isPassword,
   label = 'Placeholder',
   onTextChange = () => { },
-  ...props // props native di TextInput
+  ...props
 }, ref) => {
   const [text, setText] = useState('')
   const [focused, setFocused] = useState(false)
-  /**
-   * creiamo un Animated.Value con valore iniziale 0 che ci
-   * servirà per eseguire l'animazione tramite Animated.timing
-   * e per utilizzare il suo valore dentro il transform delle
-   * Animated.View che abbiamo integrato
-   */
+
   const animation = useRef(new Animated.Value(0)).current
 
-  // gestione della animazione al cambio focus dell'input
+
   useEffect(() => {
     let toValue = 0
     if (focused) {
@@ -36,16 +26,15 @@ const Input = forwardRef(({
       toValue = 2
     }
     Animated.timing(animation, {
-      // toValue: focused ? 1 : 0,
-      // toValue: +focused, // stessa cosa che sopra
-      toValue: toValue, // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus
+
+      toValue: toValue,
       duration: 300,
       useNativeDriver: false
-      // useNativeDriver: true // mettere `true` solamente se le proprietà che andremo ad animare sono `transform` e `opacity`
+
     }).start()
   }, [focused, text])
 
-  // invio del contenuto dell'input al cambio di valore di text
+
   useEffect(() => {
     onTextChange(text)
   }, [text])
@@ -54,7 +43,7 @@ const Input = forwardRef(({
     <View style={[styles.container, containerStyle]}>
       <Animated.View
 
-        //rende cliccabile l'input anche nel placeholder
+
         pointerEvents='none'
 
         style={[
@@ -63,8 +52,8 @@ const Input = forwardRef(({
             zIndex: 1,
             transform: [{
               translateY: animation.interpolate({
-                inputRange: [0, 1, 2], // i valori di Animated.Value, gestiti all'interno di useEffect
-                outputRange: [0, -30, -30] // il valore di translate basato sui valori di Animated.Value
+                inputRange: [0, 1, 2],
+                outputRange: [0, -30, -30]
               })
             }],
           }
@@ -77,8 +66,8 @@ const Input = forwardRef(({
           styles.background,
           {
             backgroundColor: animation.interpolate({
-              inputRange: [0, 1, 2], // i valori di Animated.Value, gestiti all'interno di useEffect
-              outputRange: [colors.grayLight, colors.silver, colors.yellow] // il valore di translate basato sui valori di Animated.Value
+              inputRange: [0, 1, 2],
+              outputRange: [colors.grayLight, colors.silver, colors.yellow]
             })
           }
         ]}
@@ -86,16 +75,12 @@ const Input = forwardRef(({
         <TextInput
           style={[
             styles.input,
-            // possiamo cambiare styles anche in base a delle variabili
-            // focused ? styles.inputFocused : undefined,
-            // {
-            //   borderBottomColor: focused ? '#0f0' : '#000'
-            // },
+
             inputStyle
           ]}
           value={text}
           onChangeText={value => setText(value)}
-          // onChangeText={setText} // stessa cosa che la riga sopra
+
           onFocus={() => setFocused(true)}
           onBlur={() => {
             setFocused(false)
@@ -107,7 +92,7 @@ const Input = forwardRef(({
         />
       </Animated.View>
 
-      {/* TRANSFORM ORIGIN https://github.com/sueLan/react-native-anchor-point */}
+
       <Animated.View
         style={{
           width: '100%',
@@ -159,43 +144,3 @@ const styles = StyleSheet.create({
 export default Input
 
 
-/**
- * Esempio base componente definita tramite classi.
- */
-
-// import React, { useRef, useEffect, useState, forwardRef } from 'react'
-// import { Animated, StyleSheet, Text, TextInput, View } from 'react-native'
-
-// class Input extends React.Component {
-
-//   constructor(props) {
-//     super(props)
-
-//     this.state = {
-//       text: '',
-//       focused: false
-//     }
-//   }
-
-//   getText() {
-//     return this.state.text
-//   }
-
-//   render() {
-//     return (
-//       <View style={{ backgroundColor: 'red' }}>
-//       <TextInput
-//         value={this.state.text}
-//         onChangeText={value => this.setState({ text: value })}
-//         // onChangeText={setText} // stessa cosa che la riga sopra
-//         onFocus={() => this.setState({ focused: true })}
-//         onBlur={() => this.setState({ focused: false })}
-//         { ...this.props }
-//       />
-//       </View>
-//     )
-//   }
-
-// }
-
-// export default Input

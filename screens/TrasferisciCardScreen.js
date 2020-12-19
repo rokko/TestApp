@@ -5,7 +5,7 @@ import Button from '../components/Button'
 import { AuthContext } from '../contexts/AuthContext'
 import Alert from '../components/Alert'
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import {layoutStyles} from '../styles/Layout'
+import { layoutStyles } from '../styles/Layout'
 import Spacer from '../components/Spacer'
 
 
@@ -95,7 +95,7 @@ export default function TrasferisciCardScreen(props) {
         <>
             <Alert open={messageOpen} message={alertMessage} onClose={() => { error ? setMessageOpen() : tornaAllaLista() }} typology={error ? 'danger' : 'success'} />
             <View style={layoutStyles.sfondo}>
-                <View style={[layoutStyles.contenuto, { justifyContent: 'center'}]}>
+                <View style={[layoutStyles.contenuto, { justifyContent: 'center' }]}>
                     <Text>Inserisci il codice </Text>
                     <Input label='Inserisci qui il codice' onTextChange={(testo) => setInputCodice(testo)} />
                     <Button onPress={() => qrScansiona()}>Clicca qui se hai un QR CODE</Button>
@@ -110,7 +110,7 @@ export default function TrasferisciCardScreen(props) {
 
 
 
-                    <Spacer size={10}/>
+                    <Spacer size={10} />
 
                     <Button onPress={() => inviaCarta()}>Invia</Button>
                 </View>

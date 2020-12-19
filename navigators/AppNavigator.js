@@ -10,13 +10,13 @@ const AppStack = createStackNavigator()
 
 export default function AppNavigator() {
 
-  const {load, token} = useContext(AuthContext)
+    const { load, token } = useContext(AuthContext)
 
-  
-   if (load) return null
+
+    if (load) return null
 
     return (
-        
+
         <AppStack.Navigator
             initialRouteName={(token) ? "MainNavigator" : "AuthNavigator"}
             screenOptions={{

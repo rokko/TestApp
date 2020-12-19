@@ -16,17 +16,8 @@ const Spacer = ({
     <View style={{
       width: horizontal ? size * sizes.unitSize : 0,
       height: horizontal ? 0 : size * sizes.unitSize
-    }} { ...props } />
+    }} {...props} />
   )
 }
-
-/**
- * questo si fa sia con i class components che con i function components,
- * anche se per i function component è decisamente meglio che fare come è stato
- * fatto sopra
- */
-// Spacer.defaultProps = {
-//   size: 0
-// }
 
 export default Spacer

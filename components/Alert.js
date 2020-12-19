@@ -1,9 +1,7 @@
 
 import React, { useRef, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import { Animated, StyleSheet, View, Text } from 'react-native'
 import Button from './Button'
-import Spacer from './Spacer'
 import colors from '../config/colors'
 import sizes from '../config/sizes'
 
@@ -33,15 +31,15 @@ export default function Alert({
       transform: [{
         scale: animation.interpolate({
           inputRange: [0, 1],
-          outputRange: [0, 1] 
+          outputRange: [0, 1]
         })
       }]
     }]}>
-      <View style={[styles.containerInternal, typologyContainerStyle]}> 
-      {
-           <Text style={styles.message}>{message}</Text>
+      <View style={[styles.containerInternal, typologyContainerStyle]}>
+        {
+          <Text style={styles.message}>{message}</Text>
         }
-       
+
         {
           onClose &&
           (

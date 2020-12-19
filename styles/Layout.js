@@ -8,43 +8,43 @@ export const layoutStyles = StyleSheet.create({
 
   },
   contenuto: {
-    
+
     flexGrow: 1,
-    backgroundColor:colors.whiteInput,
+    backgroundColor: colors.whiteInput,
     width: '100%',
     padding: 20,
-    borderTopRightRadius:10,
-    borderTopLeftRadius:10,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
   },
-  profile :{
+  profile: {
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   sfondo: {
 
-    flex: 1,
+    flex:1,
     backgroundColor: colors.black,
     alignItems: 'center',
 
   },
 
-  testoNome :{
+  testoNome: {
     fontSize: 25,
     fontWeight: 'bold'
 
   },
 
-  data :{
+  data: {
     fontStyle: 'italic',
-    fontSize : 15,
+    fontSize: 15,
   },
 
 
 
   headerStile: {
     flexDirection: 'row',
-    height : 70,    
+    height: 70,
     paddingTop: sizes.statusBarHeight,
     backgroundColor: colors.black,
     justifyContent: 'space-between',

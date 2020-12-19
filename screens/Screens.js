@@ -12,11 +12,11 @@ export default function Screens() {
             :
             <NavigationContainer ref={rootNavigation}>
                 <HeaderComponent />
-            
+
                 <AppNavigator />
-                
+
             </NavigationContainer>
-            
-            
+
+
     )
 }

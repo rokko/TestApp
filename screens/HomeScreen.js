@@ -1,13 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, Image, ActivityIndicator, } from 'react-native'
+import React, { useContext, useEffect } from 'react'
+import { Text, View, TouchableOpacity, Image } from 'react-native'
 import { AuthContext } from '../contexts/AuthContext'
 import { CardContext } from '../contexts/CardContext'
-import avatar from '../assets/avatar/avatar.png'
-import CardNavigator from '../navigators/CardNavigator'
-import HeaderComponent from '../components/Header.js'
 import { layoutStyles } from '../styles/Layout'
 import colors from '../config/colors'
-import { Colors } from 'react-native-paper';
 import { Title } from 'react-native-paper'
 import Spacer from '../components/Spacer'
 
@@ -34,19 +30,19 @@ export default function HomeScreen(props) {
                     source={require('../assets/avatar/avatar.png')} />
                 <Text style={layoutStyles.testoNome}>{user.name}</Text>
                 <Text style={layoutStyles.data}>{date}</Text>
-                <Spacer size={10}/>
+                <Spacer size={10} />
 
-                <View style={{ flexDirection: 'row', justifyContent:'space-between', width : 250, height:75}} >
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: 250, height: 75 }} >
                     <TouchableOpacity
-                        
-                        style={{flexDirection: 'column', justifyContent: 'center', borderRadius:5,alignItems: 'center', height:60 , width:90, backgroundColor:colors.black}}
+
+                        style={{ flexDirection: 'column', justifyContent: 'center', borderRadius: 5, alignItems: 'center', height: 60, width: 90, backgroundColor: colors.black }}
                         onPress={() => props.navigation.navigate('Carte')}>
-                        <Text style={{ color: colors.yellow , fontWeight:'bold'}} >Carte </Text>
-                        <Text style={{ color: colors.yellow , fontWeight: 'bold'}}>{cards.length}</Text>
+                        <Text style={{ color: colors.yellow, fontWeight: 'bold' }} >Carte </Text>
+                        <Text style={{ color: colors.yellow, fontWeight: 'bold' }}>{cards.length}</Text>
                     </TouchableOpacity>
-                    <View style={{flexDirection: 'column', justifyContent: 'center',borderRadius:5, alignItems: 'center', height:60 , width:90, backgroundColor:colors.black}}>
-                        <Text style={{ color: colors.yellow , fontWeight: 'bold'}}>Trasf </Text>
-                        <Text style={{ color: colors.yellow , fontWeight: 'bold'}}>20</Text>
+                    <View style={{ flexDirection: 'column', justifyContent: 'center', borderRadius: 5, alignItems: 'center', height: 60, width: 90, backgroundColor: colors.black }}>
+                        <Text style={{ color: colors.yellow, fontWeight: 'bold' }}>Trasf </Text>
+                        <Text style={{ color: colors.yellow, fontWeight: 'bold' }}>20</Text>
                     </View>
                 </View>
             </View>

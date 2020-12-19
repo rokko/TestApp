@@ -11,7 +11,7 @@ const ScreenContainer = ({
   return (
     <View
       style={[styles.container, style]}
-      { ...props }
+      {...props}
     >{children}</View>
   )
 }

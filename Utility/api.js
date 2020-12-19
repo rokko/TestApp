@@ -7,7 +7,7 @@ export function setToken(token) {
 }
 
 class Api {
-    async get (url) {
+    async get(url) {
         return (await fetch(`${ApiConf.baseUrl}/${url}`, {
             headers: {
                 Authorization: authToken,
@@ -15,7 +15,7 @@ class Api {
         })).json()
     }
 
-    async post (url, params = {}) {
+    async post(url, params = {}) {
         return (await fetch(`${ApiConf.baseUrl}/${url}`, {
             headers: {
                 'Content-Type': 'application/json',

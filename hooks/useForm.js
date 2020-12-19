@@ -15,13 +15,6 @@ export default function useForm(requiredInputs) {
 
     const notEmptyKeys = Object.keys(newFormValues).filter((key) => newFormValues[key] !== '')
 
-    // esempio esplicito di funzionamento del metodo every() (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
-    // let formIsValid = true
-    // requiredInputs.forEach((input) => {
-    //   if (!notEm ptyKeys.includes(input)) {
-    //     formIsValid = false
-    //   }
-    // })
 
     setFormValid(requiredInputs.every((el) => notEmptyKeys.includes(el)))
   }

@@ -1,14 +1,11 @@
 import React, { useContext, useState, createRef } from 'react'
-import { ScrollView, Text, View, TouchableOpacity, SafeAreaView } from 'react-native'
-import ScreenContainer from '../components/ScreenContainer'
-import Input from '../components/Input'
+import { ScrollView, Text, View, TouchableOpacity } from 'react-native'
 import Spacer from '../components/Spacer'
 import Title from '../components/Title'
 import Form from '../components/Form'
 import Button from '../components/Button'
 import Alert from '../components/Alert'
 import useForm from '../hooks/useForm'
-import useFetch from '../hooks/useFetch'
 import { AuthContext } from '../contexts/AuthContext'
 import { layoutStyles } from '../styles/Layout'
 import api from '../Utility/api'
@@ -84,7 +81,7 @@ export default function LoginScreen({ navigation, route }) {
 
         </View>
 
-        <View style={{ justifyContent:'center', alignItems:'center'}}>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Text style={{ color: colors.yellow }}>Hai dimenticato la password?</Text>
 
           <View style={{ flexDirection: 'row' }}>

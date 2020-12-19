@@ -2,35 +2,19 @@ import React from 'react'
 import { Pressable, Platform, Text } from 'react-native'
 import colors from '../config/colors'
 
-/**
- * Per controllare su che tipo di dispositivo siamo utilizzare `Platform`,
- * che viene importato da react-native
- * Esempi:
- * Platform.OS === 'android'
- * Platform.OS === 'ios'
- */
 
-/**
- * Questo componente non usa `Button`, ma `Pressable` di react-native
- * https://reactnative.dev/docs/pressable
- * Potremmo utilizzare anche altre tipologie di Touchables:
- * https://reactnative.dev/docs/handling-touches
- * Plus: rendere il bottone personalizzabile tramite le props `background` e `color`
- * Impostarle di default rispettivamente a "black" e "white"
- */
-
-export default function Button ({ children, ...props }) {
+export default function Button({ children, ...props }) {
   const cleanedProps = Object.assign({}, props, {
     style: [{
       backgroundColor: colors.black,
-      borderRadius:20, // fare in modo che cambi in base alle props
+      borderRadius: 20, 
       height: 40,
       paddingHorizontal: 20,
       justifyContent: 'center',
       borderStyle: 'solid',
       borderColor: colors.yellow,
-      
-      
+
+
 
     }, props.style]
   })
@@ -41,7 +25,7 @@ export default function Button ({ children, ...props }) {
     >
       <Text
         style={{
-          color: colors.yellow, // fare in modo che cambi in base alle props
+          color: colors.yellow,
           textAlign: 'center',
           fontSize: 18,
           fontWeight: 'bold',

@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import {Text, View} from 'react-native'
+import { Text, View } from 'react-native'
 import WelcomeScreen from '../screens/WelcomeScreen'
 import LoginScreen from '../screens/LoginScreen'
 import SignupScreen from '../screens/SignupScreen'
@@ -10,7 +10,7 @@ import colors from '../config/colors'
 
 const AuthStack = createStackNavigator()
 
-export default function AuthNavigator () {
+export default function AuthNavigator() {
   return (
     <AuthStack.Navigator
       initialRouteName="Login"
@@ -20,22 +20,22 @@ export default function AuthNavigator () {
       }}
     >
       <AuthStack.Screen name="Welcome" component={DashboardScreen} />
-      <AuthStack.Screen name="Login" component={LoginScreen} 
-        options={{ 
-          title:'',
-      
-          headerStyle:{ 
-            backgroundColor:colors.black,
+      <AuthStack.Screen name="Login" component={LoginScreen}
+        options={{
+          title: '',
+
+          headerStyle: {
+            backgroundColor: colors.black,
           },
 
-          
-        }}/>
-      <AuthStack.Screen name="Signup" component={SignupScreen} 
-        options={{ 
-          title :'Registrati subito',
-          headerStyle:{
+
+        }} />
+      <AuthStack.Screen name="Signup" component={SignupScreen}
+        options={{
+          title: 'Registrati subito',
+          headerStyle: {
             backgroundColor: colors.black,
-          },          
+          },
           headerTintColor: colors.yellow,
           headerTitleStyle: {
             fontWeight: 'bold',

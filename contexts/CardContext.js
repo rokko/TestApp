@@ -1,10 +1,6 @@
-import React, { createContext, useContext, useCallback, useState, useEffect } from 'react'
-import { CommonActions } from '@react-navigation/native'
-import AuthContext from './AuthContext'
-
+import React, { createContext, useState } from 'react'
 
 export const CardContext = createContext()
-
 export default function CardProvider({ children }) {
 
     const [cards, setCards] = useState([])
@@ -13,6 +9,7 @@ export default function CardProvider({ children }) {
 
     function getCards(token) {
 
+        //Facciamo richiesta al Server per ottenere le carte
         fetch(('https://tree-rn-server.herokuapp.com/get-cards'), {
             method: 'GET',
             headers: { 'Authorization': token }
@@ -21,22 +18,17 @@ export default function CardProvider({ children }) {
             .then(dati => setCards(dati.payload.cards))
             .catch(e => console.log(e))
     }
+    return (
+        //Rendiamo disponibili a tutto il programma le constanti
+        <CardContext.Provider value={{ cards, getCards, setCards }}>
+            { children}
+        </CardContext.Provider>
+    )
 
 
 
 
 
-
-                return (
-                    <CardContext.Provider value={{ cards, getCards , setCards}}>
-                        { children}
-                    </CardContext.Provider>
-                )
-
-
-
-
-
-            }
+}
 
 
